@@ -28,4 +28,19 @@ public class OrderItem {
     private int count; //주문 수량
 
 
+    //== 비즈니스 로직 == //
+    /**
+     * 주문 취소
+     */
+    public void cancle() {
+        getItem().addStock(count);
+    }
+
+    /**
+     * 전체 주문 가격 조회
+     * @return int
+     */
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
+    }
 }

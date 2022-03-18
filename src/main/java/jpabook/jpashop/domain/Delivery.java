@@ -20,7 +20,7 @@ public class Delivery {
     private Address address;
 
     @Enumerated(EnumType.STRING)
-    private DelveryStatus delveryStatus; //READY, XXX, COMP
+    private DeliveryStatus status; //READY, XXX, COMP
 
 
 }
