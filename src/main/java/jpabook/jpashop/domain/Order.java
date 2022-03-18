@@ -17,13 +17,13 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
+    //XtoOne은 무조건 FetchType.LAZY
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
 
     //JPQL select o from order o;-> SQL select * from order -> 만약 EAGER 상태인데 100개면 SQL은 100+1(order)개 나간다.
-
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
