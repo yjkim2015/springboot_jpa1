@@ -20,10 +20,10 @@ public class JpashopApplication {
 
        DTO로 변환해서 반환하는것이 더 좋은 방법
     */
-  /*  @Bean
+    @Bean
     Hibernate5Module hibernate5Module() {
         Hibernate5Module hibernate5Module = new Hibernate5Module();
         ///hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
         return hibernate5Module;
-    }*/
+    }
 }
