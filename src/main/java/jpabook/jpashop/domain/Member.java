@@ -1,10 +1,11 @@
 package jpabook.jpashop.domain;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +22,7 @@ public class Member {
     @Embedded
     private Address address;
 
-
-    /*
-        하나의 회원이 여러개의 주문 일대다
-        Order Table에있는 member에 의해서 매핑되어진다.
-        연관관계의 주인이 아닌곳에 mappedby를 넣는다.
-        즉, foreign key가 없는 곳
-     */
+    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 

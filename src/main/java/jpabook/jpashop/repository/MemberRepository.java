@@ -1,9 +1,8 @@
 package jpabook.jpashop.repository;
 
+import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-
-import jpabook.jpashop.domain.Member;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -22,9 +21,6 @@ public class MemberRepository {
         return em.find(Member.class, id);
     }
 
-    /*
-        전체를 구하기 위해선 JPQL을 사용해야한다
-     */
     public List<Member> findAll() {
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
@@ -35,5 +31,4 @@ public class MemberRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
-
 }
